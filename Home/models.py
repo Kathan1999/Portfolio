@@ -43,3 +43,27 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Project1(models.Model):
+    sno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title
+
+class Project2(models.Model):
+    sno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title
+
+class Project3(models.Model):
+    sno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=250)
+    description = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title

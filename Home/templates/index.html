@@ -135,38 +135,44 @@
 
 			<div class="post-wrapper">
 
+				{% for project1 in allProject1 %}
 				<div>
 					<div class="post">
 						<img class="thumbnail" src="images/dash.jpg">
 						<div class="post-preview">
-							<h6 class="post-title">Laboratory Management System</h6>
-							<p class="post-intro">Designed built & mantained a the lab managment system for FOI Laboratories</p>
+							<h6 class="post-title">{{project1.title}}</h6>
+							<p class="post-intro">{{project1.description}}</p>
 							<a href="post.html">Read More</a>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
+				{% for project2 in allProject2 %}
 				<div>
 					<div class="post">
 						<img class="thumbnail" src="images/ecom.jpg">
 						<div class="post-preview">
-							<h6 class="post-title">Online Store - CoursePost Title</h6>
-							<p class="post-intro">Online store with paypal payments intergration and guest user shopping</p>
+							<h6 class="post-title">{{project2.title}}</h6>
+							<p class="post-intro">{{project2.description}}</p>
 							<a href="post.html">Read More</a>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
+				{% for project3 in allProject3 %}
 				<div>
 					<div class="post">
 						<img class="thumbnail" src="images/membership site.jpg">
 						<div class="post-preview">
-							<h6 class="post-title">Membership Website</h6>
-							<p class="post-intro">Modulized guide for online courses with step by  step intructions</p>
+							<h6 class="post-title">{{project3.title}}</h6>
+							<p class="post-intro">{{project3.description}}</p>
 							<a href="post.html">Read More</a>
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 
 			</div>
 		</div>
