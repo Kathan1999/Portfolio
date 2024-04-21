@@ -24,3 +24,6 @@ def index(request):
     allProject3 = Project3.objects.all()
     context = {'allIntro':allIntro, 'allDescription':allDescription, 'allSkill':allSkill, 'allProject1':allProject1, 'allProject2':allProject2, 'allProject3':allProject3}
     return render(request, 'index.html', context)
+
+def post(request):
+    return render(request, 'post.html')
