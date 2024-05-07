@@ -67,3 +67,16 @@ class Project3(models.Model):
 
     def __str__(self):
         return self.title
+
+class Post1(models.Model):
+    sno = models.AutoField(primary_key=True)
+    title1 = models.CharField(max_length=250)
+    title2 = models.CharField(max_length=250)
+    description1 = models.CharField(max_length=500)
+    description2 = models.CharField(max_length=500)
+    description3 = models.CharField(max_length=500)
+    description4 = models.CharField(max_length=500)
+    description5 = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title1

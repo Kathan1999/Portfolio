@@ -6,6 +6,7 @@ from Home.models import Contact
 from Home.models import Project1
 from Home.models import Project2
 from Home.models import Project3
+from Home.models import Post1
 
 # Create your views here.
 def index(request):
@@ -26,4 +27,6 @@ def index(request):
     return render(request, 'index.html', context)
 
 def post(request):
-    return render(request, 'post.html')
+    allPost1 = Post1.objects.all()
+    context = {'allPost1':allPost1}
+    return render(request, 'post.html', context)
