@@ -30,3 +30,6 @@ def post(request):
     allPost1 = Post1.objects.all()
     context = {'allPost1':allPost1}
     return render(request, 'post.html', context)
+
+def blog(request):
+    return render(request, 'blog.html')
