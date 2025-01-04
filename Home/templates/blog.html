@@ -3,9 +3,35 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" name="width=device-width, initial-scale=1.0">
-        <link rel="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link id="theme-style" rel="stylesheet" type="text/css" href="">
     </head>
     <body>
-        <h1>This is my blog page</h1>
+        <section class="s1">
+            <div class="main-container">
+                <div class="greeting-wrapper">
+                    <h1>Welcome to Techno Blog</h1>
+                </div>
+
+                <div class="intro-wrapper">
+                    <div class="nav-wrapper">
+
+                        <a href="index.html">
+                            <div class="dots-wrapper">
+                                <div id="dot-1" class="browser-dot"></div>
+                                <div id="dot-2" class="browser-dot"></div>
+                                <div id="dot-3" class="browser-dot"></div>
+                            </div>
+                        </a>
+
+                        <ul id="navigation">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="login">Login</a></li>
+                            <li><a href="sign">Sign-in</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
