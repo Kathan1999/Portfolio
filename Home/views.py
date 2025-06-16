@@ -6,7 +6,10 @@ from Home.models import Contact
 from Home.models import Project1
 from Home.models import Project2
 from Home.models import Project3
-from Home.models import Post1
+from Home.models import Description1
+from Home.models import Description2
+from Home.models import Description3
+
 
 # Create your views here.
 def index(request):
@@ -26,10 +29,17 @@ def index(request):
     context = {'allIntro':allIntro, 'allDescription':allDescription, 'allSkill':allSkill, 'allProject1':allProject1, 'allProject2':allProject2, 'allProject3':allProject3}
     return render(request, 'index.html', context)
 
-def post(request):
-    allPost1 = Post1.objects.all()
-    context = {'allPost1':allPost1}
-    return render(request, 'post.html', context)
+def post1(request):
+    allDescription1 = Description1.objects.all()
+    context = {'allDescription1':allDescription1}
+    return render(request, "post1.html", context)
 
-def blog(request):
-    return render(request, 'blog.html')
+def post2(request):
+    allDescription2 = Description2.objects.all()
+    context = {'allDescription2':allDescription2}
+    return render(request, "post2.html", context)
+
+def post3(request):
+    allDesciption3 = Description3.objects.all()
+    context = {'allDescription3':allDesciption3}
+    return render(request, 'post3.html', context)
