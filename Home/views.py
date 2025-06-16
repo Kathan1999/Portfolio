@@ -1,4 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
+from django.core.mail import send_mail
+from django.contrib import messages
 from Home.models import Introduction
 from Home.models import Description
 from Home.models import Skill
@@ -11,6 +13,7 @@ from Home.models import Description2
 from Home.models import Description3
 
 
+
 # Create your views here.
 def index(request):
     if request.method == 'POST':
@@ -20,6 +23,16 @@ def index(request):
         message = request.POST.get('message')
         contact = Contact(name=name, subject=subject, email=email, message=message)
         contact.save()
+        message_body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+
+        send_mail(
+            subject,
+            message_body,
+            email,
+            ['shethkathan4@gmail.com']
+        )
+
+        messages.success(request, 'Your message has bveen sent successfully!')
     allIntro = Introduction.objects.all()
     allDescription = Description.objects.all()
     allSkill = Skill.objects.all()
