@@ -69,8 +69,10 @@
 			<div class="paragraph">
 				<p>{{description1.description1}}</p>
 			</div>
-			<div class="image-first">
-				<img src="{% static 'images/picture.png' %}" alt="simple image" width="1200" height="500">
+			<div class="video-first">
+				<video width="1200" height="500" contorls autoplay muted loop poster>
+					<source src="{% static 'images/video1.mp4' %}">
+				</video>
 			</div>
 			<div class="paragraph2">
 				<p>{{description1.description2}}</p>
