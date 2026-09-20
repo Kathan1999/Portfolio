@@ -572,6 +572,189 @@
   }
   .post-nav-card .pnc-title{color:var(--paper); font-size:14px; font-weight:500;}
 
+  .post-nav-card .pnc-title{color:var(--paper); font-size:14px; font-weight:500;}
+
+  /* ---------- github ---------- */
+
+.github-section{
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(92,194,183,0.025)
+        );
+}
+
+.github-profile{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:24px;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.github-avatar{
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    border:1px solid var(--line-hair);
+    display:block;
+    background:var(--ink-800);
+}
+
+.github-user{
+    font-family:'JetBrains Mono', monospace;
+}
+
+.github-name{
+    font-size:18px;
+    font-weight:700;
+    color:var(--paper);
+    margin-bottom:4px;
+}
+
+.github-handle{
+    font-size:12.5px;
+    color:var(--teal);
+    margin-bottom:10px;
+}
+
+.github-bio{
+    color:#c7c3b8;
+    font-size:14px;
+    max-width:600px;
+    margin:0;
+}
+
+.github-stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0 0 30px;
+}
+
+.github-stat{
+    background:var(--ink-800);
+    border:1px solid var(--line-hair);
+    border-radius:4px;
+    padding:12px 16px;
+    min-width:125px;
+}
+
+.github-stat-value{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:18px;
+    color:var(--amber);
+    font-weight:700;
+}
+
+.github-stat-label{
+    display:block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--comment);
+    margin-top:2px;
+    text-transform:uppercase;
+}
+
+.github-repos{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+}
+
+.github-repo{
+    background:var(--ink-800);
+    border:1px solid var(--line-hair);
+    border-left:3px solid var(--line-hair);
+    border-radius:4px;
+    padding:20px;
+    transition:
+        border-color .25s ease,
+        transform .2s ease,
+        background .25s ease;
+}
+
+.github-repo:hover{
+    border-left-color:var(--teal);
+    background:var(--ink-700);
+    transform:translateY(-2px);
+}
+
+.github-repo-name{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:9px;
+}
+
+.github-repo-name a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:14px;
+    font-weight:700;
+    color:var(--paper);
+    text-decoration:none;
+}
+
+.github-repo-name a:hover{
+    color:var(--teal);
+}
+
+.github-stars{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--amber);
+    white-space:nowrap;
+}
+
+.github-repo-desc{
+    color:#c7c3b8;
+    font-size:13px;
+    line-height:1.55;
+    margin:0 0 16px;
+    min-height:40px;
+}
+
+.github-repo-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--comment);
+}
+
+.github-language{
+    color:var(--teal);
+}
+
+.github-forks{
+    color:var(--comment);
+}
+
+.github-footer{
+    margin-top:24px;
+}
+
+@media (max-width:680px){
+
+    .github-profile{
+        grid-template-columns:1fr;
+    }
+
+    .github-repos{
+        grid-template-columns:1fr;
+    }
+
+    .github-avatar{
+        width:70px;
+        height:70px;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -591,6 +774,7 @@
       <a href="#projects" data-target="projects">Work</a>
       <a href="#blog" data-target="blog">Writing</a>
       <a href="#contact" data-target="contact">Contact</a>
+      <a href="#github" data-target="github">GitHub</a>
     </nav>
     <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
@@ -604,6 +788,7 @@
       <a href="#projects" data-target="projects"><span class="mm-num">03</span>Work</a>
       <a href="#blog" data-target="blog"><span class="mm-num">04</span>Writing</a>
       <a href="#contact" data-target="contact"><span class="mm-num">05</span>Contact</a>
+      <a href="#github" data-target="github">GitHub</a>
     </nav>
     <div class="mm-foot">hello@kathansheth.com</div>
   </div>
@@ -721,6 +906,172 @@
     </div>
   </section>
 
+  <section id="github" class="github-section">
+
+    <div class="eyebrow">
+        <span class="kw">curl</span> api.github.com/users/<span class="str">kathan1999</span>
+    </div>
+
+    <h2 class="sec-title">
+        GitHub<span class="punc">.activity</span>
+    </h2>
+
+    {% if github_user %}
+
+    <div class="github-profile reveal">
+
+        {% if github_user.avatar_url %}
+            <img
+                src="{{ github_user.avatar_url }}"
+                alt="GitHub avatar"
+                class="github-avatar"
+            >
+        {% endif %}
+
+        <div class="github-user">
+
+            <div class="github-name">
+                {{ github_user.name|default:"Kathan Sheth" }}
+            </div>
+
+            <div class="github-handle">
+                @{{ github_user.login }}
+            </div>
+
+            {% if github_user.bio %}
+                <p class="github-bio">
+                    {{ github_user.bio }}
+                </p>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <div class="github-stats reveal">
+
+        <div class="github-stat">
+            <span class="github-stat-value">
+                {{ github_user.public_repos }}
+            </span>
+            <span class="github-stat-label">
+                repositories
+            </span>
+        </div>
+
+        <div class="github-stat">
+            <span class="github-stat-value">
+                {{ github_user.followers }}
+            </span>
+            <span class="github-stat-label">
+                followers
+            </span>
+        </div>
+
+        <div class="github-stat">
+            <span class="github-stat-value">
+                {{ github_user.following }}
+            </span>
+            <span class="github-stat-label">
+                following
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="github-repos">
+
+        {% for repo in github_repos %}
+
+        <article class="github-repo reveal">
+
+            <div class="github-repo-name">
+
+                <a
+                    href="{{ repo.html_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {{ repo.name }}
+                </a>
+
+                <span class="github-stars">
+                    ★ {{ repo.stargazers_count }}
+                </span>
+
+            </div>
+
+            <p class="github-repo-desc">
+                {{ repo.description|default:"No description provided." }}
+            </p>
+
+            <div class="github-repo-meta">
+
+                {% if repo.language %}
+                    <span class="github-language">
+                        ● {{ repo.language }}
+                    </span>
+                {% endif %}
+
+                <span class="github-forks">
+                    fork: {{ repo.forks_count }}
+                </span>
+
+            </div>
+
+        </article>
+
+        {% empty %}
+
+        <p class="changelog-intro">
+            # No public repositories found.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+
+    <div class="github-footer">
+
+        <a
+            href="https://github.com/kathan1999"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost"
+        >
+            $ open github.com/kathan1999 →
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <div class="shell-block reveal">
+
+        <div class="shell-line">
+            <span class="p">$</span>
+            <span class="flag">github</span>
+            <span style="color:var(--rose)">
+                connection unavailable
+            </span>
+        </div>
+
+        <div class="shell-line">
+            <span class="p">$</span>
+            <span style="color:var(--comment)">
+                try again later
+            </span>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
   <section id="blog">
     <div class="eyebrow"><span class="kw">tail</span> -f <span class="str">blog.changelog</span></div>
     <h2 class="sec-title">Changelog<span class="punc"> — writing, one release at a time</span></h2>
@@ -753,15 +1104,15 @@
     <div class="eyebrow"><span class="kw">#!/usr/bin/env</span> <span class="str">bash</span></div>
     <h2 class="sec-title">Get in touch<span class="punc">.sh</span></h2>
     <div class="shell-block reveal">
-      <div class="shell-line"><span class="p">$</span> <span class="flag">--email</span> <a href="mailto:hello@mayachen.dev">hello@mayachen.dev</a><button class="copy-btn" data-copy="hello@mayachen.dev">copy</button></div>
-      <div class="shell-line"><span class="p">$</span> <span class="flag">--github</span> <a href="https://github.com" target="_blank" rel="noopener">github.com/mayachen</a></div>
+      <div class="shell-line"><span class="p">$</span> <span class="flag">--email</span> <a href="mailto:shethkathan4@gmail.com">shethkathan4@gmail.com</a><button class="copy-btn" data-copy="hello@mayachen.dev">copy</button></div>
+      <div class="shell-line"><span class="p">$</span> <span class="flag">--github</span> <a href="https://github.com/kathan1999" target="_blank" rel="noopener">github.com/kathan1999</a></div>
       <div class="shell-line"><span class="p">$</span> <span class="flag">--linkedin</span> <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin.com/in/mayachen</a></div>
       <div class="shell-line"><span class="p">$</span> <span class="flag">--resume</span> <a href="#">/resume.pdf</a></div>
     </div>
   </section>
 
   <footer>
-    <span>© 2026 Maya Chen — compiled with care.</span>
+    <span>© 2026 Kathan Sheth — compiled with excellency</span>
     <span>EOF</span>
   </footer>
 </div>
