@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Why I stopped using useEffect for data fetching — Maya Chen</title>
+<title>Why I stopped using useEffect for data fetching — Kathan Sheth</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -582,13 +582,12 @@
 
 <div id="shell">
   <header id="site-header">
-    <a href="portfolio.html#hero" class="brand-mark" data-target="hero">MC<span class="brand-caret"></span></a>
+    <a href="portfolio.html#hero" class="brand-mark" data-target="hero">KS<span class="brand-caret"></span></a>
     <nav id="nav-desktop">
       <span id="nav-pill"></span>
       <a href="portfolio.html#hero" data-target="hero">About</a>
       <a href="portfolio.html#skills" data-target="skills">Skills</a>
       <a href="portfolio.html#projects" data-target="projects">Work</a>
-      <a href="portfolio.html#blog" data-target="blog" class="active">Writing</a>
       <a href="portfolio.html#contact" data-target="contact">Contact</a>
     </nav>
     <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -611,15 +610,14 @@
     <a class="back-link" href="portfolio.html#blog">← back to changelog</a>
 
     <div class="post-meta-row">
-      <span class="ver mono">v2.3.0</span>
-      <span class="entry-tag thoughts">Thoughts</span>
-      <span>Aug 2026</span>
+      <span class="ver mono">{{post.version}}</span>
+      <span class="entry-tag thoughts">{{post.heading}}</span>
+      <span>{{post.year}}</span>
       <span>·</span>
-      <span>5 min read</span>
     </div>
 
-    <h1 class="post-title">Why I stopped using useEffect for data fetching</h1>
-    <p class="post-dek">Every stale-closure bug and double-fired request I've traced this year led back to the same habit. Here's what I moved to instead, and what actually got simpler.</p>
+    <h1 class="post-title">{{post.title}}</h1>
+    <p class="post-dek">{{post.description}}</p>
 
     <div class="post-body">
       <p>For a long time my default was: component mounts, effect runs, effect fetches. It reads fine in a tutorial. It falls apart the moment the component can re-render for a reason that has nothing to do with the data it depends on.</p>

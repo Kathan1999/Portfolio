@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maya Chen — Software Engineer</title>
+<title>Kathan Sheth — Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -728,69 +728,23 @@
 
     <div id="entries">
 
+      {% for post in posts %}
       <div class="entry reveal">
         <button class="entry-head" aria-expanded="false">
-          <span class="ver">v2.3.0</span>
-          <span class="entry-tag thoughts">Thoughts</span>
-          <span class="entry-title">Why I stopped using useEffect for data fetching</span>
-          <span class="entry-date">Aug 2026</span>
+          <span class="ver">{{post.version}}</span>
+          <span class="entry-tag thoughts">{{post.heading}}</span>
+          <span class="entry-title">{{post.title}}</span>
+          <span class="entry-date">{{post.year}}</span>
           <span class="chev">▶</span>
         </button>
         <div class="entry-body">
           <div class="entry-body-inner">
-            <p>Every bug report I traced back to a stale closure or a double-fired request had the same root cause: fetching in an effect and hoping the dependency array would save me. This post walks through moving that logic into loaders and query hooks instead, and what actually got simpler.</p>
-            <a class="read-more" href="blog" style="color:var(--teal)">read full post →</a>
+            <p>{{post.description}}</p>
+            <a class="read-more" href="{% url 'blog' post.slug %}" style="color:var(--teal)">read full post →</a>
           </div>
         </div>
       </div>
-
-      <div class="entry reveal">
-        <button class="entry-head" aria-expanded="false">
-          <span class="ver">v2.2.0</span>
-          <span class="entry-tag build">Build Log</span>
-          <span class="entry-title">Building a dependency graph visualizer in a weekend</span>
-          <span class="entry-date">Jun 2026</span>
-          <span class="chev">▶</span>
-        </button>
-        <div class="entry-body">
-          <div class="entry-body-inner">
-            <p>The origin story of wayfinder: a Saturday spent staring at a 40,000-line import graph, and the force-directed layout that finally made the circular dependency obvious. Includes the parts that didn't work first.</p>
-            <a class="read-more" href="post-dependency-graph-visualizer.html" style="color:var(--teal)">read full post →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="entry reveal">
-        <button class="entry-head" aria-expanded="false">
-          <span class="ver">v2.1.0</span>
-          <span class="entry-tag retro">Retro</span>
-          <span class="entry-title">Notes from my first on-call rotation</span>
-          <span class="entry-date">Mar 2026</span>
-          <span class="chev">▶</span>
-        </button>
-        <div class="entry-body">
-          <div class="entry-body-inner">
-            <p>What actually paged me, what I wish the runbooks had said, and the three dashboards I built the week after so it wouldn't happen the same way twice.</p>
-            <a class="read-more" href="post-first-oncall-rotation.html" style="color:var(--teal)">read full post →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="entry reveal">
-        <button class="entry-head" aria-expanded="false">
-          <span class="ver">v2.0.0</span>
-          <span class="entry-tag deep">Deep Dive</span>
-          <span class="entry-title">Migrating a monolith to services without a rewrite</span>
-          <span class="entry-date">Jan 2026</span>
-          <span class="chev">▶</span>
-        </button>
-        <div class="entry-body">
-          <div class="entry-body-inner">
-            <p>The strangler-fig approach we used to peel a billing module out of a 9-year-old Rails app, one route at a time, without a single freeze week.</p>
-            <a class="read-more" href="post-monolith-migration.html" style="color:var(--teal)">read full post →</a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
 
     </div>
   </section>
